@@ -4,12 +4,12 @@ var map = new ol.Map({
     renderer: 'canvas',
     layers: layersList,
     view: new ol.View({
-        extent: [13377035.356859, 1626823.939947, 13431554.167273, 1656797.117219], maxZoom: 28, minZoom: 1
+        extent: [13379558.516840, 1630691.319432, 13434083.037926, 1660663.953160], maxZoom: 28, minZoom: 1
     })
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([13377035.356859, 1626823.939947, 13431554.167273, 1656797.117219], map.getSize());
+map.getView().fit([13379558.516840, 1630691.319432, 13434083.037926, 1660663.953160], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -926,17 +926,6 @@ document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-search';
 
 //layer search
 
-var searchLayer = new SearchLayer({
-    layer: lyr_FLOODRISKINDEXMAP_9,
-    colName: 'Barangay',
-    zoom: 10,
-    collapsed: true,
-    map: map
-});
-map.addControl(searchLayer);
-document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
-document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search feature ...';
-    
 
 //scalebar
 
