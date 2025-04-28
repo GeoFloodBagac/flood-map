@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading Coping Capacity Map...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #003366;
+      flex-direction: column;
+    }
+
+    .spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #003366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="spinner"></div>
+  <p>Loading Coping Capacity Map...</p>
+
+  <script>
+    setTimeout(function() {
+      window.location.href = "maps/Coping Capacity/index.html";
+    }, 1000); // waits 1 second then redirects
+  </script>
+
+</body>
+</html>
