@@ -39,11 +39,11 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/COPINGCAPACITY_5.js"></script>
-        <script src="data/EXPOSURE_6.js"></script>
-        <script src="data/VULNERABILITY_7.js"></script>
-        <script src="data/HAZARD_8.js"></script>
-        <script src="data/FLOODRISKINDEXMAP_9.js"></script>
+        <script src="data/COPINGCAPACITY_2.js"></script>
+        <script src="data/EXPOSURE_3.js"></script>
+        <script src="data/VULNERABILITY_4.js"></script>
+        <script src="data/HAZARD_5.js"></script>
+        <script src="data/FLOODRISKINDEXMAP_6.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -63,7 +63,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[14.491719000449894,120.1906191044913],[14.752247170702212,120.6804212109972]]);
+        }).fitBounds([[14.458080523696067,120.16795317274125],[14.718653252943867,120.65770397940385]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -138,31 +138,7 @@
         });
         layer_GoogleSatellite_1;
         map.addLayer(layer_GoogleSatellite_1);
-        map.createPane('pane_100yr_2');
-        map.getPane('pane_100yr_2').style.zIndex = 402;
-        var img_100yr_2 = 'data/100yr_2.png';
-        var img_bounds_100yr_2 = [[14.464816670497454,120.34459961038762],[14.712145050238238,120.48125772860713]];
-        var layer_100yr_2 = new L.imageOverlay(img_100yr_2,
-                                              img_bounds_100yr_2,
-                                              {pane: 'pane_100yr_2'});
-        bounds_group.addLayer(layer_100yr_2);
-        map.createPane('pane_50yr_3');
-        map.getPane('pane_50yr_3').style.zIndex = 403;
-        var img_50yr_3 = 'data/50yr_3.png';
-        var img_bounds_50yr_3 = [[14.464816670497454,120.34459961038762],[14.712145050238238,120.48125772860713]];
-        var layer_50yr_3 = new L.imageOverlay(img_50yr_3,
-                                              img_bounds_50yr_3,
-                                              {pane: 'pane_50yr_3'});
-        bounds_group.addLayer(layer_50yr_3);
-        map.createPane('pane_25yr_4');
-        map.getPane('pane_25yr_4').style.zIndex = 404;
-        var img_25yr_4 = 'data/25yr_4.png';
-        var img_bounds_25yr_4 = [[14.464816670497454,120.34459961038762],[14.712145050238238,120.48125772860713]];
-        var layer_25yr_4 = new L.imageOverlay(img_25yr_4,
-                                              img_bounds_25yr_4,
-                                              {pane: 'pane_25yr_4'});
-        bounds_group.addLayer(layer_25yr_4);
-        function pop_COPINGCAPACITY_5(feature, layer) {
+        function pop_COPINGCAPACITY_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -189,99 +165,99 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_COPINGCAPACITY_5_0(feature) {
+        function style_COPINGCAPACITY_2_0(feature) {
             switch(String(feature.properties['R C'])) {
                 case '1.0':
                     return {
-                pane: 'pane_COPINGCAPACITY_5',
+                pane: 'pane_COPINGCAPACITY_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.761)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(247,252,245,0.761)',
+                fillColor: 'rgba(247,252,245,1.0)',
                 interactive: true,
             }
                     break;
                 case '2.0':
                     return {
-                pane: 'pane_COPINGCAPACITY_5',
+                pane: 'pane_COPINGCAPACITY_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.761)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(201,234,194,0.761)',
+                fillColor: 'rgba(201,234,194,1.0)',
                 interactive: true,
             }
                     break;
                 case '3.0':
                     return {
-                pane: 'pane_COPINGCAPACITY_5',
+                pane: 'pane_COPINGCAPACITY_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.761)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(123,199,124,0.761)',
+                fillColor: 'rgba(123,199,124,1.0)',
                 interactive: true,
             }
                     break;
                 case '4.0':
                     return {
-                pane: 'pane_COPINGCAPACITY_5',
+                pane: 'pane_COPINGCAPACITY_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.761)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(42,146,75,0.761)',
+                fillColor: 'rgba(42,146,75,1.0)',
                 interactive: true,
             }
                     break;
                 case '5.0':
                     return {
-                pane: 'pane_COPINGCAPACITY_5',
+                pane: 'pane_COPINGCAPACITY_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.761)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,68,27,0.761)',
+                fillColor: 'rgba(0,68,27,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_COPINGCAPACITY_5');
-        map.getPane('pane_COPINGCAPACITY_5').style.zIndex = 405;
-        map.getPane('pane_COPINGCAPACITY_5').style['mix-blend-mode'] = 'normal';
-        var layer_COPINGCAPACITY_5 = new L.geoJson(json_COPINGCAPACITY_5, {
+        map.createPane('pane_COPINGCAPACITY_2');
+        map.getPane('pane_COPINGCAPACITY_2').style.zIndex = 402;
+        map.getPane('pane_COPINGCAPACITY_2').style['mix-blend-mode'] = 'normal';
+        var layer_COPINGCAPACITY_2 = new L.geoJson(json_COPINGCAPACITY_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_COPINGCAPACITY_5',
-            layerName: 'layer_COPINGCAPACITY_5',
-            pane: 'pane_COPINGCAPACITY_5',
-            onEachFeature: pop_COPINGCAPACITY_5,
-            style: style_COPINGCAPACITY_5_0,
+            dataVar: 'json_COPINGCAPACITY_2',
+            layerName: 'layer_COPINGCAPACITY_2',
+            pane: 'pane_COPINGCAPACITY_2',
+            onEachFeature: pop_COPINGCAPACITY_2,
+            style: style_COPINGCAPACITY_2_0,
         });
-        bounds_group.addLayer(layer_COPINGCAPACITY_5);
-        function pop_EXPOSURE_6(feature, layer) {
+        bounds_group.addLayer(layer_COPINGCAPACITY_2);
+        function pop_EXPOSURE_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -308,99 +284,99 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EXPOSURE_6_0(feature) {
+        function style_EXPOSURE_3_0(feature) {
             switch(String(feature.properties['R E'])) {
                 case '1.0':
                     return {
-                pane: 'pane_EXPOSURE_6',
+                pane: 'pane_EXPOSURE_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.676)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(223,210,246,0.676)',
+                fillColor: 'rgba(223,210,246,1.0)',
                 interactive: true,
             }
                     break;
                 case '2.0':
                     return {
-                pane: 'pane_EXPOSURE_6',
+                pane: 'pane_EXPOSURE_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.676)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(215,181,216,0.676)',
+                fillColor: 'rgba(215,181,216,1.0)',
                 interactive: true,
             }
                     break;
                 case '3.0':
                     return {
-                pane: 'pane_EXPOSURE_6',
+                pane: 'pane_EXPOSURE_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.676)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(223,101,176,0.676)',
+                fillColor: 'rgba(223,101,176,1.0)',
                 interactive: true,
             }
                     break;
                 case '4.0':
                     return {
-                pane: 'pane_EXPOSURE_6',
+                pane: 'pane_EXPOSURE_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.676)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(221,28,119,0.676)',
+                fillColor: 'rgba(221,28,119,1.0)',
                 interactive: true,
             }
                     break;
                 case '5.0':
                     return {
-                pane: 'pane_EXPOSURE_6',
+                pane: 'pane_EXPOSURE_3',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.676)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(152,0,67,0.676)',
+                fillColor: 'rgba(152,0,67,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_EXPOSURE_6');
-        map.getPane('pane_EXPOSURE_6').style.zIndex = 406;
-        map.getPane('pane_EXPOSURE_6').style['mix-blend-mode'] = 'normal';
-        var layer_EXPOSURE_6 = new L.geoJson(json_EXPOSURE_6, {
+        map.createPane('pane_EXPOSURE_3');
+        map.getPane('pane_EXPOSURE_3').style.zIndex = 403;
+        map.getPane('pane_EXPOSURE_3').style['mix-blend-mode'] = 'normal';
+        var layer_EXPOSURE_3 = new L.geoJson(json_EXPOSURE_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EXPOSURE_6',
-            layerName: 'layer_EXPOSURE_6',
-            pane: 'pane_EXPOSURE_6',
-            onEachFeature: pop_EXPOSURE_6,
-            style: style_EXPOSURE_6_0,
+            dataVar: 'json_EXPOSURE_3',
+            layerName: 'layer_EXPOSURE_3',
+            pane: 'pane_EXPOSURE_3',
+            onEachFeature: pop_EXPOSURE_3,
+            style: style_EXPOSURE_3_0,
         });
-        bounds_group.addLayer(layer_EXPOSURE_6);
-        function pop_VULNERABILITY_7(feature, layer) {
+        bounds_group.addLayer(layer_EXPOSURE_3);
+        function pop_VULNERABILITY_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -427,99 +403,99 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_VULNERABILITY_7_0(feature) {
+        function style_VULNERABILITY_4_0(feature) {
             switch(String(feature.properties['R V'])) {
                 case '1':
                     return {
-                pane: 'pane_VULNERABILITY_7',
+                pane: 'pane_VULNERABILITY_4',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.758)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,178,0.758)',
+                fillColor: 'rgba(255,255,178,1.0)',
                 interactive: true,
             }
                     break;
                 case '2':
                     return {
-                pane: 'pane_VULNERABILITY_7',
+                pane: 'pane_VULNERABILITY_4',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.758)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(254,204,92,0.758)',
+                fillColor: 'rgba(254,204,92,1.0)',
                 interactive: true,
             }
                     break;
                 case '3':
                     return {
-                pane: 'pane_VULNERABILITY_7',
+                pane: 'pane_VULNERABILITY_4',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.758)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(253,141,60,0.758)',
+                fillColor: 'rgba(253,141,60,1.0)',
                 interactive: true,
             }
                     break;
                 case '4':
                     return {
-                pane: 'pane_VULNERABILITY_7',
+                pane: 'pane_VULNERABILITY_4',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.758)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(240,59,32,0.758)',
+                fillColor: 'rgba(240,59,32,1.0)',
                 interactive: true,
             }
                     break;
                 case '5.0':
                     return {
-                pane: 'pane_VULNERABILITY_7',
+                pane: 'pane_VULNERABILITY_4',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.758)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(189,0,38,0.758)',
+                fillColor: 'rgba(189,0,38,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_VULNERABILITY_7');
-        map.getPane('pane_VULNERABILITY_7').style.zIndex = 407;
-        map.getPane('pane_VULNERABILITY_7').style['mix-blend-mode'] = 'normal';
-        var layer_VULNERABILITY_7 = new L.geoJson(json_VULNERABILITY_7, {
+        map.createPane('pane_VULNERABILITY_4');
+        map.getPane('pane_VULNERABILITY_4').style.zIndex = 404;
+        map.getPane('pane_VULNERABILITY_4').style['mix-blend-mode'] = 'normal';
+        var layer_VULNERABILITY_4 = new L.geoJson(json_VULNERABILITY_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_VULNERABILITY_7',
-            layerName: 'layer_VULNERABILITY_7',
-            pane: 'pane_VULNERABILITY_7',
-            onEachFeature: pop_VULNERABILITY_7,
-            style: style_VULNERABILITY_7_0,
+            dataVar: 'json_VULNERABILITY_4',
+            layerName: 'layer_VULNERABILITY_4',
+            pane: 'pane_VULNERABILITY_4',
+            onEachFeature: pop_VULNERABILITY_4,
+            style: style_VULNERABILITY_4_0,
         });
-        bounds_group.addLayer(layer_VULNERABILITY_7);
-        function pop_HAZARD_8(feature, layer) {
+        bounds_group.addLayer(layer_VULNERABILITY_4);
+        function pop_HAZARD_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -546,99 +522,99 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_HAZARD_8_0(feature) {
+        function style_HAZARD_5_0(feature) {
             switch(String(feature.properties['R H'])) {
                 case '1':
                     return {
-                pane: 'pane_HAZARD_8',
+                pane: 'pane_HAZARD_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.769)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(220,219,236,0.769)',
+                fillColor: 'rgba(220,219,236,1.0)',
                 interactive: true,
             }
                     break;
                 case '2':
                     return {
-                pane: 'pane_HAZARD_8',
+                pane: 'pane_HAZARD_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.769)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(222,190,253,0.769)',
+                fillColor: 'rgba(222,190,253,1.0)',
                 interactive: true,
             }
                     break;
                 case '3':
                     return {
-                pane: 'pane_HAZARD_8',
+                pane: 'pane_HAZARD_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.769)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(163,159,203,0.769)',
+                fillColor: 'rgba(163,159,203,1.0)',
                 interactive: true,
             }
                     break;
                 case '4':
                     return {
-                pane: 'pane_HAZARD_8',
+                pane: 'pane_HAZARD_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.769)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(106,81,163,0.769)',
+                fillColor: 'rgba(106,81,163,1.0)',
                 interactive: true,
             }
                     break;
                 case '5.0':
                     return {
-                pane: 'pane_HAZARD_8',
+                pane: 'pane_HAZARD_5',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.769)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(57,0,114,0.769)',
+                fillColor: 'rgba(57,0,114,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_HAZARD_8');
-        map.getPane('pane_HAZARD_8').style.zIndex = 408;
-        map.getPane('pane_HAZARD_8').style['mix-blend-mode'] = 'normal';
-        var layer_HAZARD_8 = new L.geoJson(json_HAZARD_8, {
+        map.createPane('pane_HAZARD_5');
+        map.getPane('pane_HAZARD_5').style.zIndex = 405;
+        map.getPane('pane_HAZARD_5').style['mix-blend-mode'] = 'normal';
+        var layer_HAZARD_5 = new L.geoJson(json_HAZARD_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_HAZARD_8',
-            layerName: 'layer_HAZARD_8',
-            pane: 'pane_HAZARD_8',
-            onEachFeature: pop_HAZARD_8,
-            style: style_HAZARD_8_0,
+            dataVar: 'json_HAZARD_5',
+            layerName: 'layer_HAZARD_5',
+            pane: 'pane_HAZARD_5',
+            onEachFeature: pop_HAZARD_5,
+            style: style_HAZARD_5_0,
         });
-        bounds_group.addLayer(layer_HAZARD_8);
-        function pop_FLOODRISKINDEXMAP_9(feature, layer) {
+        bounds_group.addLayer(layer_HAZARD_5);
+        function pop_FLOODRISKINDEXMAP_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -669,99 +645,123 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FLOODRISKINDEXMAP_9_0(feature) {
+        function style_FLOODRISKINDEXMAP_6_0(feature) {
             switch(String(feature.properties['R R'])) {
                 case '5.0':
                     return {
-                pane: 'pane_FLOODRISKINDEXMAP_9',
+                pane: 'pane_FLOODRISKINDEXMAP_6',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.736)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,37,115,0.736)',
+                fillColor: 'rgba(0,37,115,1.0)',
                 interactive: true,
             }
                     break;
                 case '4.0':
                     return {
-                pane: 'pane_FLOODRISKINDEXMAP_9',
+                pane: 'pane_FLOODRISKINDEXMAP_6',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.736)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(90,0,254,0.736)',
+                fillColor: 'rgba(90,0,254,1.0)',
                 interactive: true,
             }
                     break;
                 case '3.0':
                     return {
-                pane: 'pane_FLOODRISKINDEXMAP_9',
+                pane: 'pane_FLOODRISKINDEXMAP_6',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.736)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(175,69,255,0.736)',
+                fillColor: 'rgba(175,69,255,1.0)',
                 interactive: true,
             }
                     break;
                 case '2.0':
                     return {
-                pane: 'pane_FLOODRISKINDEXMAP_9',
+                pane: 'pane_FLOODRISKINDEXMAP_6',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.736)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(227,210,255,0.736)',
+                fillColor: 'rgba(227,210,255,1.0)',
                 interactive: true,
             }
                     break;
                 case '1.0':
                     return {
-                pane: 'pane_FLOODRISKINDEXMAP_9',
+                pane: 'pane_FLOODRISKINDEXMAP_6',
                 opacity: 1,
-                color: 'rgba(35,35,35,0.736)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(247,229,255,0.736)',
+                fillColor: 'rgba(247,229,255,1.0)',
                 interactive: true,
             }
                     break;
             }
         }
-        map.createPane('pane_FLOODRISKINDEXMAP_9');
-        map.getPane('pane_FLOODRISKINDEXMAP_9').style.zIndex = 409;
-        map.getPane('pane_FLOODRISKINDEXMAP_9').style['mix-blend-mode'] = 'normal';
-        var layer_FLOODRISKINDEXMAP_9 = new L.geoJson(json_FLOODRISKINDEXMAP_9, {
+        map.createPane('pane_FLOODRISKINDEXMAP_6');
+        map.getPane('pane_FLOODRISKINDEXMAP_6').style.zIndex = 406;
+        map.getPane('pane_FLOODRISKINDEXMAP_6').style['mix-blend-mode'] = 'normal';
+        var layer_FLOODRISKINDEXMAP_6 = new L.geoJson(json_FLOODRISKINDEXMAP_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FLOODRISKINDEXMAP_9',
-            layerName: 'layer_FLOODRISKINDEXMAP_9',
-            pane: 'pane_FLOODRISKINDEXMAP_9',
-            onEachFeature: pop_FLOODRISKINDEXMAP_9,
-            style: style_FLOODRISKINDEXMAP_9_0,
+            dataVar: 'json_FLOODRISKINDEXMAP_6',
+            layerName: 'layer_FLOODRISKINDEXMAP_6',
+            pane: 'pane_FLOODRISKINDEXMAP_6',
+            onEachFeature: pop_FLOODRISKINDEXMAP_6,
+            style: style_FLOODRISKINDEXMAP_6_0,
         });
-        bounds_group.addLayer(layer_FLOODRISKINDEXMAP_9);
-        map.addLayer(layer_FLOODRISKINDEXMAP_9);
+        bounds_group.addLayer(layer_FLOODRISKINDEXMAP_6);
+        map.addLayer(layer_FLOODRISKINDEXMAP_6);
+        map.createPane('pane_100yr_7');
+        map.getPane('pane_100yr_7').style.zIndex = 407;
+        var img_100yr_7 = 'data/100yr_7.png';
+        var img_bounds_100yr_7 = [[14.464816670497454,120.34459961038762],[14.712145050238238,120.48125772860713]];
+        var layer_100yr_7 = new L.imageOverlay(img_100yr_7,
+                                              img_bounds_100yr_7,
+                                              {pane: 'pane_100yr_7'});
+        bounds_group.addLayer(layer_100yr_7);
+        map.createPane('pane_50yr_8');
+        map.getPane('pane_50yr_8').style.zIndex = 408;
+        var img_50yr_8 = 'data/50yr_8.png';
+        var img_bounds_50yr_8 = [[14.464816670497454,120.34459961038762],[14.712145050238238,120.48125772860713]];
+        var layer_50yr_8 = new L.imageOverlay(img_50yr_8,
+                                              img_bounds_50yr_8,
+                                              {pane: 'pane_50yr_8'});
+        bounds_group.addLayer(layer_50yr_8);
+        map.createPane('pane_25yr_9');
+        map.getPane('pane_25yr_9').style.zIndex = 409;
+        var img_25yr_9 = 'data/25yr_9.png';
+        var img_bounds_25yr_9 = [[14.464816670497454,120.34459961038762],[14.712145050238238,120.48125772860713]];
+        var layer_25yr_9 = new L.imageOverlay(img_25yr_9,
+                                              img_bounds_25yr_9,
+                                              {pane: 'pane_25yr_9'});
+        bounds_group.addLayer(layer_25yr_9);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -773,15 +773,15 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var overlaysTree = [
-            {label: 'FLOOD RISK INDEX MAP<br /><table><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_9_VeryHighFloodRisk0.png" /></td><td>Very High Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_9_HighFloodRisk1.png" /></td><td> High Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_9_ModerateFloodRisk2.png" /></td><td>Moderate Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_9_LowFloodRisk3.png" /></td><td>Low Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_9_VeryLowFloodRisk4.png" /></td><td>Very Low Flood Risk</td></tr></table>', layer: layer_FLOODRISKINDEXMAP_9},
-            {label: 'HAZARD<br /><table><tr><td style="text-align: center;"><img src="legend/HAZARD_8_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_8_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_8_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_8_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_8_VeryHigh4.png" /></td><td>Very High</td></tr></table>', layer: layer_HAZARD_8},
-            {label: 'VULNERABILITY<br /><table><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_7_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_7_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_7_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_7_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_7_VeryHigh4.png" /></td><td>Very High</td></tr></table>', layer: layer_VULNERABILITY_7},
-            {label: 'EXPOSURE<br /><table><tr><td style="text-align: center;"><img src="legend/EXPOSURE_6_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_6_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_6_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_6_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_6_VeryHigh4.png" /></td><td>Very High</td></tr></table>', layer: layer_EXPOSURE_6},
-            {label: 'COPING CAPACITY<br /><table><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_5_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_5_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_5_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_5_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_5_VeryHIgh4.png" /></td><td>Very HIgh</td></tr></table>', layer: layer_COPINGCAPACITY_5},
-        {label: '<b>Floodplain Map</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: "25 yr", layer: layer_25yr_4},
-            {label: "50 yr", layer: layer_50yr_3},
-            {label: "100 yr", layer: layer_100yr_2},]},
+        {label: '<b>Floodplain Map</b>',  selectAllCheckbox: true, children: [
+            {label: "25 yr", layer: layer_25yr_9},
+            {label: "50 yr", layer: layer_50yr_8},
+            {label: "100 yr", layer: layer_100yr_7},]},
+            {label: 'FLOOD RISK INDEX MAP<br /><table><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_6_VeryHighFloodRisk0.png" /></td><td>Very High Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_6_HighFloodRisk1.png" /></td><td> High Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_6_ModerateFloodRisk2.png" /></td><td>Moderate Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_6_LowFloodRisk3.png" /></td><td>Low Flood Risk</td></tr><tr><td style="text-align: center;"><img src="legend/FLOODRISKINDEXMAP_6_VeryLowFloodRisk4.png" /></td><td>Very Low Flood Risk</td></tr></table>', layer: layer_FLOODRISKINDEXMAP_6},
+            {label: 'HAZARD<br /><table><tr><td style="text-align: center;"><img src="legend/HAZARD_5_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_5_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_5_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_5_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/HAZARD_5_VeryHigh4.png" /></td><td>Very High</td></tr></table>', layer: layer_HAZARD_5},
+            {label: 'VULNERABILITY<br /><table><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_4_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_4_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_4_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_4_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/VULNERABILITY_4_VeryHigh4.png" /></td><td>Very High</td></tr></table>', layer: layer_VULNERABILITY_4},
+            {label: 'EXPOSURE<br /><table><tr><td style="text-align: center;"><img src="legend/EXPOSURE_3_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_3_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_3_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_3_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/EXPOSURE_3_VeryHigh4.png" /></td><td>Very High</td></tr></table>', layer: layer_EXPOSURE_3},
+            {label: 'COPING CAPACITY<br /><table><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_2_VeryLow0.png" /></td><td>Very Low</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_2_Low1.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_2_Moderate2.png" /></td><td>Moderate</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_2_High3.png" /></td><td>High</td></tr><tr><td style="text-align: center;"><img src="legend/COPINGCAPACITY_2_VeryHIgh4.png" /></td><td>Very HIgh</td></tr></table>', layer: layer_COPINGCAPACITY_2},
         {label: '<b>Terrain</b>',  selectAllCheckbox: true, children: [
             {label: "Google Satellite", layer: layer_GoogleSatellite_1, radioGroup: 'bm' },
             {label: "Google Terrain", layer: layer_GoogleTerrain_0, radioGroup: 'bm' },]},]
@@ -796,20 +796,33 @@
         });
         lay.addTo(map);
         setBounds();
+        var i = 0;
+        layer_FLOODRISKINDEXMAP_6.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['adm4_en'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['adm4_en']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_FLOODRISKINDEXMAP_6'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
             }
         });
-        resetLabels([layer_FLOODRISKINDEXMAP_9]);
+        resetLabels([layer_HAZARD_5,layer_FLOODRISKINDEXMAP_6]);
         map.on("zoomend", function(){
-            resetLabels([layer_FLOODRISKINDEXMAP_9]);
+            resetLabels([layer_HAZARD_5,layer_FLOODRISKINDEXMAP_6]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_FLOODRISKINDEXMAP_9]);
+            resetLabels([layer_HAZARD_5,layer_FLOODRISKINDEXMAP_6]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_FLOODRISKINDEXMAP_9]);
+            resetLabels([layer_HAZARD_5,layer_FLOODRISKINDEXMAP_6]);
         });
         </script>
     </body>
