@@ -55,6 +55,10 @@ var lyr_HAZARD_3 = new ol.layer.Vector({
     <img src="styles/legend/HAZARD_3_2.png" /> Moderate<br />\
     <img src="styles/legend/HAZARD_3_3.png" /> High<br />\
     <img src="styles/legend/HAZARD_3_4.png" /> Very High<br />' });
+var group_FLOODPLAINMAPS = new ol.layer.Group({
+                                layers: [],
+                                fold: 'open',
+                                title: 'FLOODPLAIN MAPS'});
 
 lyr_GoogleMaps_0.setVisible(true);lyr_OpenStreetMap_1.setVisible(true);lyr_GoogleSatellite_2.setVisible(true);lyr_HAZARD_3.setVisible(true);
 var layersList = [lyr_GoogleMaps_0,lyr_OpenStreetMap_1,lyr_GoogleSatellite_2,lyr_HAZARD_3];
