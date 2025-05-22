@@ -143,6 +143,105 @@
 	  pointer-events: none; /* ensures it doesn't block map interaction */
 	  z-index: 1002;
 	}
+	
+	/* Default visibility rules */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* Map margin (desktop) */
+#map {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  #map {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .mobile-bottom-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 12px;
+    right: 12px;
+    background-color: rgba(0, 64, 128, 0.95);
+    border-radius: 12px;
+    padding: 8px;
+    z-index: 1001;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .mobile-bottom-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-bottom-bar a:hover {
+    background-color: #00264d;
+    color: #ffcc00;
+  }
+}
+
+#info-button {
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  background: rgba(0, 64, 128, 0.85);
+  color: white;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1100;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+#info-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background: rgba(0, 64, 128, 0.95);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  user-select: text;
+}
+
 
   </style>
 
@@ -151,21 +250,34 @@
 </head>
 <body>
 
-		  <div class="sidebar">
-		<div class="sidebar-header">
-		  <img src="images/your-logo.png" alt="GeoFlood Bagac Logo" />
-		  <h1>GeoFlood Bagac</h1>
-		</div>
-		<ul>
-		  <li><a href="../../index.html">Home</a></li>
-		  <li><a href="../../flood-risk.html">Flood Risk</a></li>
-		  <li><a href="../../hazard.html">Hazard</a></li>
-		  <li><a href="../../vulnerability.html">Vulnerability</a></li>
-		  <li><a href="../../exposure.html">Exposure</a></li>
-		  <li><a href="../../coping.html">Coping Capacity</a></li>
-		  <li><a href="../../floodplain.html">Floodplain</a></li>
-		</ul>
-	  </div>
+		<!-- Desktop Sidebar -->
+<div class="sidebar desktop-only">
+  <div class="sidebar-header">
+    <img src="images/your-logo.png" alt="GeoFlood Bagac Logo" />
+    <h1>GeoFlood Bagac</h1>
+  </div>
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../flood-risk.html">Flood Risk</a></li>
+    <li><a href="../../hazard.html">Hazard</a></li>
+    <li><a href="../../vulnerability.html">Vulnerability</a></li>
+    <li><a href="../../exposure.html">Exposure</a></li>
+    <li><a href="../../coping.html">Coping Capacity</a></li>
+    <li><a href="../../floodplain.html">Floodplain</a></li>
+  </ul>
+</div>
+
+<!-- Mobile Bottom Bar -->
+<div class="mobile-bottom-bar mobile-only">
+  <a href="../../index.html">Home</a>
+  <a href="../../flood-risk.html">Flood Risk</a>
+  <a href="../../hazard.html">Hazard</a>
+  <a href="../../vulnerability.html">Vulnerability</a>
+  <a href="../../exposure.html">Exposure</a>
+  <a href="../../coping.html">Coping Capacity</a>
+  <a href="../../floodplain.html">Floodplain</a>
+</div>
+
 
 	  <div id="map">
 		<div id="popup" class="ol-popup">
@@ -174,6 +286,79 @@
 		</div>
 	  </div>
   
+ <!-- Info Button -->
+<div id="info-button" title="Click for info">i</div>
+
+<!-- Tooltip content -->
+<div id="info-tooltip" style="
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background: rgba(0, 64, 128, 0.95);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 280px;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 1101;
+  max-height: 50vh;
+  overflow-y: auto;
+  text-align: left;
+">
+   <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>Very Low Exposure:</strong><br>
+    Few people or assets are present in flood-prone areas.<br>
+    <em>Cause:</em> Sparse population and limited development in hazard zones.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>Low Exposure:</strong><br>
+    Some people or assets may be affected during floods.<br>
+    <em>Cause:</em> Scattered settlements or low-density infrastructure.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>Moderate Exposure:</strong><br>
+    Moderate number of people and assets at risk during flooding.<br>
+    <em>Cause:</em> Residential and commercial areas partially within flood zones.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>High Exposure:</strong><br>
+    Many people and valuable assets are at risk.<br>
+    <em>Cause:</em> Dense population and critical infrastructure near flood-prone areas.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
+    <strong>Very High Exposure:</strong><br>
+    Large populations and major assets are highly exposed to floods.<br>
+    <em>Cause:</em> Urban centers and important facilities located within floodplains.
+  </div>
+</div>
+
+<script>
+  const infoButton = document.getElementById('info-button');
+  const infoTooltip = document.getElementById('info-tooltip');
+
+  infoButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent triggering document click immediately
+    if (infoTooltip.style.display === 'block') {
+      infoTooltip.style.display = 'none';
+    } else {
+      infoTooltip.style.display = 'block';
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!infoButton.contains(event.target) && !infoTooltip.contains(event.target)) {
+      infoTooltip.style.display = 'none';
+    }
+  });
+</script>
 	 
         <script src="resources/qgis2web_expressions.js"></script>
         <script src="./resources/functions.js"></script>

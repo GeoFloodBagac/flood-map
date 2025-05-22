@@ -143,6 +143,105 @@
 	  pointer-events: none; /* ensures it doesn't block map interaction */
 	  z-index: 1002;
 	}
+	
+	/* Default visibility rules */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* Map margin (desktop) */
+#map {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  #map {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .mobile-bottom-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 12px;
+    right: 12px;
+    background-color: rgba(0, 64, 128, 0.95);
+    border-radius: 12px;
+    padding: 8px;
+    z-index: 1001;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .mobile-bottom-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-bottom-bar a:hover {
+    background-color: #00264d;
+    color: #ffcc00;
+  }
+}
+
+#info-button {
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  background: rgba(0, 64, 128, 0.85);
+  color: white;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1100;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+#info-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background: rgba(0, 64, 128, 0.95);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  user-select: text;
+}
+
 
   </style>
 
@@ -151,21 +250,34 @@
 </head>
 <body>
 
-		  <div class="sidebar">
-		<div class="sidebar-header">
-		  <img src="images/your-logo.png" alt="GeoFlood Bagac Logo" />
-		  <h1>GeoFlood Bagac</h1>
-		</div>
-		<ul>
-		  <li><a href="../../index.html">Home</a></li>
-		  <li><a href="../../flood-risk.html">Flood Risk</a></li>
-		  <li><a href="../../hazard.html">Hazard</a></li>
-		  <li><a href="../../vulnerability.html">Vulnerability</a></li>
-		  <li><a href="../../exposure.html">Exposure</a></li>
-		  <li><a href="../../coping.html">Coping Capacity</a></li>
-		  <li><a href="../../floodplain.html">Floodplain</a></li>
-		</ul>
-	  </div>
+		<!-- Desktop Sidebar -->
+<div class="sidebar desktop-only">
+  <div class="sidebar-header">
+    <img src="images/your-logo.png" alt="GeoFlood Bagac Logo" />
+    <h1>GeoFlood Bagac</h1>
+  </div>
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../flood-risk.html">Flood Risk</a></li>
+    <li><a href="../../hazard.html">Hazard</a></li>
+    <li><a href="../../vulnerability.html">Vulnerability</a></li>
+    <li><a href="../../exposure.html">Exposure</a></li>
+    <li><a href="../../coping.html">Coping Capacity</a></li>
+    <li><a href="../../floodplain.html">Floodplain</a></li>
+  </ul>
+</div>
+
+<!-- Mobile Bottom Bar -->
+<div class="mobile-bottom-bar mobile-only">
+  <a href="../../index.html">Home</a>
+  <a href="../../flood-risk.html">Flood</a>
+  <a href="../../hazard.html">Hazard</a>
+  <a href="../../vulnerability.html">Vulnerable</a>
+  <a href="../../exposure.html">Exposure</a>
+  <a href="../../coping.html">Coping</a>
+  <a href="../../floodplain.html">Floodplain</a>
+</div>
+
 
 	  <div id="map">
 		<div id="popup" class="ol-popup">
@@ -174,7 +286,63 @@
 		</div>
 	  </div>
   
+  <div id="info-button" title="Click or hover for info">i
+ <div id="info-tooltip" style="max-width: 300px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; line-height: 1.3; text-align: left;">
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>Very Low Flood Risk:</strong><br>
+    Flooding is rare; area is generally safe with minimal concern.<br>
+    <em>Cause:</em> Located on higher ground or good drainage areas.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>Low Flood Risk:</strong><br>
+    Flooding is unlikely but possible during extreme weather.<br>
+    <em>Cause:</em> Occasional heavy rainfall or minor river overflow.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>Moderate Flood Risk:</strong><br>
+    Flooding may occur occasionally; stay alert during heavy rains.<br>
+    <em>Cause:</em> Moderate rainfall combined with limited drainage capacity.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; border-radius: 4px;">
+    <strong>High Flood Risk:</strong><br>
+    Flooding happens frequently; take precautions and prepare.<br>
+    <em>Cause:</em> Heavy rains, poor drainage, or nearby water bodies overflow.
+  </div>
+
+  <div style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;">
+    <strong>Very High Flood Risk:</strong><br>
+    Flooding is imminent or ongoing; urgent action and evacuation needed.<br>
+    <em>Cause:</em> Severe storms, river breaches, or tidal surges.
+  </div>
+
+</div>
+
+</div>
 	 
+	 <script>
+  const infoButton = document.getElementById('info-button');
+  const infoTooltip = document.getElementById('info-tooltip');
+
+  infoButton.addEventListener('click', () => {
+    if (infoTooltip.style.display === 'block') {
+      infoTooltip.style.display = 'none';
+    } else {
+      infoTooltip.style.display = 'block';
+    }
+  });
+
+  // Optional: Close tooltip if clicked outside the button/tooltip
+  document.addEventListener('click', (event) => {
+    if (!infoButton.contains(event.target)) {
+      infoTooltip.style.display = 'none';
+    }
+  });
+</script>
+
     <!-- Scripts -->
     <script src="resources/qgis2web_expressions.js"></script>
     <script src="./resources/functions.js"></script>
@@ -190,6 +358,7 @@
     <script src="./resources/qgis2web.js"></script>
 
 	
+
 
 
 </body>
