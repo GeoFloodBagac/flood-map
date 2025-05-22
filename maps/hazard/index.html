@@ -1,60 +1,180 @@
-<!doctype html>
+<!doctype HTML> 
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="./resources/ol.css">
-        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
-        <link rel="stylesheet" type="text/css" href="resources/horsey.min.css">
-        <link rel="stylesheet" type="text/css" href="resources/ol3-search-layer.min.css">
-        <link href="resources/ol-geocoder.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
-        <link rel="stylesheet" href="./resources/qgis2web.css">
-        <style>
-        html, body {
-            background-color: #ffffff;
-        }
-        .ol-control > * {
-            background-color: #f8f8f8!important;
-            color: #444444!important;
-            border-radius: 0px;
-        }
-        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
-            color: #444444!important;
-        }
-        .search-layer-input-search {
-            background-color: #f8f8f8!important;
-        }
-        .ol-control > *:focus, .ol-control >*:hover {
-            background-color: rgba(248, 248, 248, 0.7)!important;
-        } 
-        .ol-control {
-            background-color: rgba(255,255,255,.4) !important;
-            padding: 2px !important;
-        } 
-        </style>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./resources/ol.css">
+    <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/horsey.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/ol3-search-layer.min.css">
+    <link href="resources/ol-geocoder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+    <link rel="stylesheet" href="./resources/qgis2web.css">
+    <!-- Add Montserrat font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
 
-        <style>
-        html, body, #map {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        </style>
-        <title>Hazard Map</title>
-		<link rel="icon" href="images/your-logo.png" type="image/png">
-    </head>
-    <body>
-        <div id="map">
-            <div id="popup" class="ol-popup">
-                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                <div id="popup-content"></div>
-            </div>
-        </div>
+    /* Sidebar styling */
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background-color: rgba(0, 64, 128, 0.8); /* #004080 with 80% opacity */
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      box-sizing: border-box;
+      z-index: 1001;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+    }
+
+    /* Logo and site name container */
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-left: 10px;
+    }
+
+    .sidebar-header img {
+      height: 40px;
+      width: auto;
+      margin-right: 12px;
+    }
+
+    .sidebar-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+      user-select: none;
+    }
+
+    /* Menu list */
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 12px;
+    }
+
+    .sidebar ul li a {
+      display: block;
+      padding: 12px 18px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      user-select: none;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #00264d; /* Darker blue */
+      color: #ffcc00;
+    }
+
+    /* Map container adjusted for sidebar */
+    #map {
+      margin-left: 220px;
+      height: 100vh;
+      width: calc(100% - 220px);
+    }
+
+    /* OpenLayers controls styling (unchanged) */
+    .ol-control > * {
+      background-color: #f8f8f8 !important;
+      color: #444 !important;
+      border-radius: 0;
+    }
+
+    .ol-attribution a,
+    .gcd-gl-input::placeholder,
+    .search-layer-input-search::placeholder {
+      color: #444 !important;
+    }
+
+    .search-layer-input-search {
+      background-color: #f8f8f8 !important;
+    }
+
+    .ol-control > *:focus,
+    .ol-control > *:hover {
+      background-color: rgba(248, 248, 248, 0.7) !important;
+    }
+
+    .ol-control {
+      background-color: rgba(255, 255, 255, 0.4) !important;
+      padding: 2px !important;
+    }
+	
+			#hover-popup {
+	  position: absolute;
+	  background: white;
+	  padding: 6px 10px;
+	  border-radius: 4px;
+	  border: 1px solid #ccc;
+	  font-size: 0.85rem;
+	  color: #333;
+	  display: none;
+	  white-space: nowrap;
+	  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	  pointer-events: none; /* ensures it doesn't block map interaction */
+	  z-index: 1002;
+	}
+
+  </style>
+
+    <title>Geoflood Bagac | Hazard Map</title>
+    <link rel="icon" href="images/your-logo.png" type="image/png">
+</head>
+<body>
+
+		  <div class="sidebar">
+		<div class="sidebar-header">
+		  <img src="images/your-logo.png" alt="GeoFlood Bagac Logo" />
+		  <h1>GeoFlood Bagac</h1>
+		</div>
+		<ul>
+		  <li><a href="../../index.html">Home</a></li>
+		  <li><a href="../../flood-risk.html">Flood Risk</a></li>
+		  <li><a href="../../hazard.html">Hazard</a></li>
+		  <li><a href="../../vulnerability.html">Vulnerability</a></li>
+		  <li><a href="../../exposure.html">Exposure</a></li>
+		  <li><a href="../../coping.html">Coping Capacity</a></li>
+		  <li><a href="../../floodplain.html">Floodplain</a></li>
+		</ul>
+	  </div>
+
+	  <div id="map">
+		<div id="popup" class="ol-popup">
+		  <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+		  <div id="popup-content"></div>
+		</div>
+	  </div>
+  
+	 
         <script src="resources/qgis2web_expressions.js"></script>
         <script src="./resources/functions.js"></script>
         <script src="./resources/ol.js"></script>

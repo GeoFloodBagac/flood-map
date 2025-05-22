@@ -50,15 +50,11 @@ var lyr_FLOODRISKINDEXMAP_3 = new ol.layer.Vector({
                 popuplayertitle: 'FLOOD RISK INDEX MAP',
                 interactive: true,
     title: 'FLOOD RISK INDEX MAP<br />\
-    <img src="styles/legend/FLOODRISKINDEXMAP_3_0.png" /> Very High Flood Risk<br />\
-    <img src="styles/legend/FLOODRISKINDEXMAP_3_1.png" />  High Flood Risk<br />\
+    <img src="styles/legend/FLOODRISKINDEXMAP_3_0.png" /> Very Low Flood Risk<br />\
+    <img src="styles/legend/FLOODRISKINDEXMAP_3_1.png" /> Low Flood Risk<br />\
     <img src="styles/legend/FLOODRISKINDEXMAP_3_2.png" /> Moderate Flood Risk<br />\
-    <img src="styles/legend/FLOODRISKINDEXMAP_3_3.png" /> Low Flood Risk<br />\
-    <img src="styles/legend/FLOODRISKINDEXMAP_3_4.png" /> Very Low Flood Risk<br />' });
-var group_FLOODPLAINMAPS = new ol.layer.Group({
-                                layers: [],
-                                fold: 'close',
-                                title: 'FLOODPLAIN MAPS'});
+    <img src="styles/legend/FLOODRISKINDEXMAP_3_3.png" /> High Flood Risk<br />\
+    <img src="styles/legend/FLOODRISKINDEXMAP_3_4.png" /> Very High Flood Risk<br />' });
 
 lyr_GoogleMaps_0.setVisible(true);lyr_OpenStreetMap_1.setVisible(true);lyr_GoogleSatellite_2.setVisible(true);lyr_FLOODRISKINDEXMAP_3.setVisible(true);
 var layersList = [lyr_GoogleMaps_0,lyr_OpenStreetMap_1,lyr_GoogleSatellite_2,lyr_FLOODRISKINDEXMAP_3];
