@@ -56,37 +56,60 @@
 	
 
     .card-container {
-      margin-top: 150px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
+  margin-top: 240px; /* Increased from 280px */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Tablet view */
+@media (max-width: 768px) {
+  .card-container {
+    margin-top: 220px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 500px) {
+  .card-container {
+    margin-top: 350px;
+  }
+}
 
     .card {
-      box-sizing: border-box;
-      width: 190px;
-      height: 254px;
-      background: rgba(217, 217, 217, 0.58);
-      border: 1px solid white;
-      box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-      backdrop-filter: blur(6px);
-      border-radius: 17px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.5s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      font-weight: bolder;
-      color: black;
-      background-size: cover;
-      background-position: center;
-      overflow: hidden;
-      position: relative;
-      text-decoration: none;
-    }
+  box-sizing: border-box;
+  width: 150px; /* Reduced from 190px */
+  height: 200px; /* Reduced from 254px */
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+/* Optional: Further reduce on mobile screens */
+@media (max-width: 480px) {
+  .card {
+    width: 130px;
+    height: 180px;
+    font-size: 0.85rem;
+  }
+}
 
     .card:hover {
       border: 1px solid black;
@@ -145,6 +168,9 @@
 
 <!-- Footer -->
 <footer>
+  <p style="max-width: 800px; margin: 0 auto 20px; line-height: 1.4; color: rgba(255, 255, 255, 0.8);">
+    <strong>Disclaimer:</strong> GeoFlood Bagac is currently in its beta release phase. The platform is still undergoing active development to enhance system stability and to finalize hazard and risk mapping layers. The developers, partner institutions, and affiliated organizations of GeoFlood Bagac shall not be held liable for any damages or losses incurred by any party arising from the use of this beta platform, its content, or its functionalities.
+  </p>
   &copy; 2025 GeoFlood Bagac | All Rights Reserved
 </footer>
 
